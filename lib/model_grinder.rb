@@ -1,8 +1,10 @@
 module ModelGrinder; end
 
-require 'model_grinder/abstract'
+require 'model_grinder/class_methods'
 
 module ModelGrinder
+
+  extend ActiveSupport::Concern if const_defined?(:ActiveSupport)
 
   ORMS = {
       datamapper: {
@@ -15,16 +17,15 @@ module ModelGrinder
       },
       mongoid: {
           class: 'Mongoid::Finders',
-          method: lambda { |obj| Mongoid::Finders.extend obj }
+          method: lambda { |obj| Mongoid::Document.extend obj }
       },
       all: nil
   }
 
-
-  extend Abstract
+  extend ClassMethods
 
   def self.extended(klass)
-    klass.send(:extend,  ModelGrinder::Abstract)
+    klass.send(:extend,  ModelGrinder::ClassMethods)
   end
 
   def self.integrate(orm)
@@ -52,5 +53,8 @@ module ModelGrinder
     @_mg_templates = {}
   end
 
+  def self.templates
+    @_mg_templates ||= {}
+  end
 
 end

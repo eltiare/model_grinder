@@ -2,16 +2,6 @@ describe ModelGrinder do
 
   describe "integration" do
 
-    after :each do
-      ModelGrinder::ORMS.each { |k,v|
-        next if v.nil?
-        klass = eval(v[:class])
-        ModelGrinder::Abstract.instance_methods.each { |m|
-          klass.send(:remove_method, m) if klass.methods.include?(m)
-        }
-      }
-    end
-
     it "integrates with DataMapper" do
       ModelGrinder.integrate(:datamapper)
       name = /\w+/.gen
@@ -48,7 +38,7 @@ describe ModelGrinder do
       t.name.should == name
       t = ActiveRecordModel.build(:testing)
       t.name.should == name
-      t.new?.should == false
+      t.new_record?.should == false
     end
 
     it "integrates with all supported and present ORMs at once" do

@@ -1,5 +1,5 @@
-# Everything in the abstract is expressed through ModelGrinder, so tests will deal with it instead.
-describe ModelGrinder::Abstract do
+# Everything in the ClassMethods module is expressed through ModelGrinder, so tests will deal with it instead.
+describe ModelGrinder::ClassMethods do
 
   after :each do
     ModelGrinder.clear_templates!

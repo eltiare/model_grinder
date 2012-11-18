@@ -1,8 +1,8 @@
 module ModelGrinder
-  module Abstract
+  module ClassMethods
 
     def _mg_templates
-      @_mg_templates ||= {}
+      @_mg_templates ||= ModelGrinder.templates
     end
 
     def template(*args, &blk)

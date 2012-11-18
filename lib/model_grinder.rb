@@ -17,7 +17,7 @@ module ModelGrinder
       },
       mongoid: {
           class: 'Mongoid::Finders',
-          method: lambda { |obj| Mongoid::Document.extend obj }
+          method: lambda { |obj| Mongoid::Document.send(:include, obj) }
       },
       all: nil
   }
@@ -25,6 +25,10 @@ module ModelGrinder
   extend ClassMethods
 
   def self.extended(klass)
+    klass.send(:extend,  ModelGrinder::ClassMethods)
+  end
+
+  def self.included(klass)
     klass.send(:extend,  ModelGrinder::ClassMethods)
   end
 

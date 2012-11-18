@@ -23,11 +23,8 @@ module ModelGrinder
     end
 
     def generate(*args)
-      klass = parse_args(args)
-      unless klass.respond_to?(:new)
-        raise ArgumentError.new('Class not supplied for fixture or class supplied does not respond to new call.')
-      end
-      klass.new(gen_hash(*args))
+      klass, name, attrs = parse_args(args)
+      klass.new(gen_hash(*args) || {})
     end
 
     alias :gen :generate

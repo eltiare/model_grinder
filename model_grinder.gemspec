@@ -13,24 +13,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'randexp'
 
 
-  # Testing
-  s.add_development_dependency 'rspec'
-
-  # DataMapper
-  s.add_development_dependency 'dm-core'
-  s.add_development_dependency 'dm-sqlite-adapter'
-  s.add_development_dependency 'dm-migrations'
-
-  # ActiveRecord
-  s.add_development_dependency 'activerecord', '3.2.9'
-
-
-  # Mongoid
-  s.add_development_dependency 'mongo', '1.7.0'
-  s.add_development_dependency 'bson', '1.7.0'
-  s.add_development_dependency 'bson_ext', '1.7.0'
-  s.add_development_dependency "mongoid",  "3.0.11"
-
-
 end
 

@@ -46,3 +46,7 @@ or
  YourModel.generate(:valid, name: "Your mom")
 If you'd like to persist the model to the data store (by calling "save" on the instance), use the build method instead
 with the same arguments. It will return the instance for you to manipulate later.
+
+== Documentation
+This library is documented with YARD. If you'd like you can clone this repository and run `rake yard` to generate the
+HTML documentation.

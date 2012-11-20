@@ -4,6 +4,9 @@ gemspec
 # Testing
 gem 'rspec'
 
+# Documentation
+gem 'yard'
+
 # DataMapper
 gem 'dm-core'
 gem 'dm-sqlite-adapter'

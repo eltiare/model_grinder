@@ -44,14 +44,14 @@ If you'd like to have them assigned to a model instance, use:
  ModelGrinder.generate(YourModel, :valid, name: "Your mom")
 or
  YourModel.generate(:valid, name: "Your mom")
-If you'd like to persist the model to the data store (by calling `save` on the instance), use the build method instead
+If you'd like to persist the model to the data store (by calling `save` on the instance), use the `build` method instead
 with the same arguments. It will return the instance for you to manipulate later.
 
 === Picking generated models
 To retrieve a random set of previously generated models, `pick` is your best friend.
  YourModel.pick(:valid, number: 3)
 This will pick up to 3 different previously generated models. If there are none, it will return an empty array. If
- you leave off the number, it defaults to 1
+you leave off the number, it defaults to 1
 
 == Documentation
 This library is documented with YARD. If you'd like you can clone this repository and run `rake yard` to generate the

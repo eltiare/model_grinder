@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    Model Grinder (0.1.0)
+    Model Grinder (1.0.0)
       randexp
 
 GEM

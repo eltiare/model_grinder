@@ -1,9 +1,9 @@
 Gem::Specification.new do |s|
   s.name        = 'Model Grinder'
-  s.version     = '0.1.0'
-  s.date        = '2012-11-17'
+  s.version     = '1.0.0'
+  s.date        = '2013-01-07'
   s.summary     = "Grind out model data"
-  s.description = "Similar to Datamapper's Sweatshop gem, but for most major ORMs (eventually)"
+  s.description = "An ORM agnostic way to generate models for testing"
   s.authors     = ["Jeremy Nicoll"]
   s.email       = 'jrnicoll@hotmail.com'
   s.files = Dir['lib/**/*.rb']
@@ -11,7 +11,5 @@ Gem::Specification.new do |s|
     'http://rubygems.org/gems/model_grinder'
 
   s.add_runtime_dependency 'randexp'
-
-
 end
 

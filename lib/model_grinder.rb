@@ -63,7 +63,6 @@ module ModelGrinder
   extend ActiveSupport::Concern if const_defined?(:ActiveSupport)
 
   # List of supported ORMs
-  # TODO: get Mongoid working!
   ORMS = {
       datamapper: lambda { |obj| DataMapper::Model.append_extensions obj },
       activerecord: lambda { |obj| ActiveRecord::Base.extend obj },

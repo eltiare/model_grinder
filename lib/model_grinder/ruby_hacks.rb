@@ -1,6 +1,6 @@
 unless Array.respond_to?(:sample)
-  class Array
-    def sample(num = 1)
+  class Array #:nodoc: all
+    def sample(num = 1) #:
       ret = []
       already_picked = []
       (1..num).each { |i|

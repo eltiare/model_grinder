@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    Model Grinder (1.0.0)
+    model_grinder (1.0.1)
       randexp
 
 GEM
@@ -67,13 +67,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  Model Grinder!
   activerecord (= 3.2.9)
   bson (= 1.7.0)
   bson_ext (= 1.7.0)
   dm-core
   dm-migrations
   dm-sqlite-adapter
+  model_grinder!
   mongo (= 1.7.0)
   mongoid (= 3.0.13)
   rspec

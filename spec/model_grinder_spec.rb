@@ -25,7 +25,7 @@ describe ModelGrinder do
       t.name.should == name
       t = MongoidModel.build(:testing)
       t.name.should == name
-      t.new?.should == false
+      t.new_record?.should == false
     end
 
     it "integrates with ActiveRecord" do
@@ -41,9 +41,8 @@ describe ModelGrinder do
       t.new_record?.should == false
     end
 
-    it "integrates with all supported and present ORMs at once" do
+    it "integrates with all supported and present ORMs at once"
 
-    end
   end
 
 

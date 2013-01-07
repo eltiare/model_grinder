@@ -20,4 +20,4 @@ gem 'sqlite3',      '1.3.6'
 gem 'mongo', '1.7.0'
 gem 'bson', '1.7.0'
 gem 'bson_ext', '1.7.0'
-gem "mongoid",  "3.0.11"
+gem "mongoid",  "3.0.13"

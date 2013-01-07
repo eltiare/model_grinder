@@ -67,7 +67,17 @@ module ModelGrinder
   ORMS = {
       datamapper: lambda { |obj| DataMapper::Model.append_extensions obj },
       activerecord: lambda { |obj| ActiveRecord::Base.extend obj },
-      mongoid: lambda { |obj| Mongoid::Document.send(:include, obj) },
+      mongoid: lambda { |obj|
+        if Mongoid.respond_to?(:models)
+          Mongoid.models.each { |o| o.extend obj}
+        else
+          # Find all the mongoids, find them all!
+          ObjectSpace.each_object(Class) { |o|
+            next unless o.ancestors.include?(Mongoid::Components)
+            o.extend obj
+          }
+        end
+      },
       all: nil
   }
 
@@ -114,6 +124,10 @@ module ModelGrinder
   #
   def self.templates
     @_mg_templates ||= {}
+  end
+
+  def self._generated
+    @_mg_generated ||= {}
   end
 
 end

@@ -6,12 +6,11 @@ intended for use in all ORMs, not just DataMapper.
 To use with one ORM, pass the name of the ORM to ModelGrinder.integrate via a symbol. Like so:
    ModelGrinder.integrate(:datamapper)
 
-Currently the options are :datamapper, :activerecord, and :mongoid. I'm still trying to get Mongoid to work
-properly, so be patient. If you wish to simply have it load for all available ORMs, pass the argument of :all instead
-of the ORM name.
+Currently the options are :datamapper, :activerecord, and :mongoid. If you wish to simply have it load for all available
+ORMs, pass the argument of :all instead of the ORM name.
 
 Note that you do not have to integrate if you wish to use the ModelGrinder to make all the calls instead of calling
-directly on the models.
+directly on the models. You will need to call the `integrate` method AFTER your models are defined.
 
 == Usage
 === Templates
@@ -34,6 +33,7 @@ you pass in as a static value, anything you want to be different you pass in som
 This library includes the randexp gem, which is used in these examples to generate random data. You can read more about
 it here at https://github.com/benburkert/randexp. However, you can use whatever libraries or methods you would like
 to generate the data.
+
 === Using The Templates
 If you'd like to get the hash by itself:
  ModelGrinder.gen_hash(YourModel, :valid, name: "Your mom" )
@@ -44,8 +44,14 @@ If you'd like to have them assigned to a model instance, use:
  ModelGrinder.generate(YourModel, :valid, name: "Your mom")
 or
  YourModel.generate(:valid, name: "Your mom")
-If you'd like to persist the model to the data store (by calling "save" on the instance), use the build method instead
+If you'd like to persist the model to the data store (by calling `save` on the instance), use the build method instead
 with the same arguments. It will return the instance for you to manipulate later.
+
+=== Picking generated models
+To retrieve a random set of previously generated models, `pick` is your best friend.
+ YourModel.pick(:valid, number: 3)
+This will pick up to 3 different previously generated models. If there are none, it will return an empty array. If
+ you leave off the number, it defaults to 1
 
 == Documentation
 This library is documented with YARD. If you'd like you can clone this repository and run `rake yard` to generate the
@@ -53,7 +59,7 @@ HTML documentation.
 
 == Copyright Notice
 Copyright Notice
-Copyright (c) 2012 Jeremy Nicoll
+Copyright (c) 2012-2013 Jeremy Nicoll
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 
